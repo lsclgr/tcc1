@@ -1,0 +1,2 @@
+Número de nós: 46169
+Número de arestas: 45889
