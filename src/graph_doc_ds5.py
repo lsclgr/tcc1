@@ -4,11 +4,11 @@ import numpy as np
 
 # Caminhos dos arquivos CSV
 arquivos_csv = {
-    "accounts": "/home/luisa-calegari/Documentos/tcc_test/data/accounts1.csv",
-    "documents": "/home/luisa-calegari/Documentos/tcc_test/data/documents1.csv",
-    "levels": "/home/luisa-calegari/Documentos/tcc_test/data/levels1.csv",
-    "pix_enviado": "/home/luisa-calegari/Documentos/tcc_test/data/pix_enviado1.csv",
-    "ted_enviado": "/home/luisa-calegari/Documentos/tcc_test/data/ted_envio1.csv"
+    "accounts": "data/accounts1.csv",
+    "documents": "data/documents1.csv",
+    "levels": "data/levels1.csv",
+    "pix_enviado": "data/pix_enviado1.csv",
+    "ted_enviado": "data/ted_envio1.csv"
 }
 
 # Carregar os dados
@@ -183,7 +183,7 @@ for node, data in G.nodes(data=True):
             data[key] = convert_to_string(value)
 
 # Salvar grafo em GML
-nx.write_gml(G, "/home/luisa-calegari/Documentos/tcc_test/out/graph.gml")
+nx.write_gml(G, "out/grapphh.gml")
 
 # Verificar o número de nós e arestas
 num_nos = G.number_of_nodes()
