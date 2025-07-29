@@ -218,7 +218,7 @@ if __name__ == "__main__":
     print(f"Using device: {device}")
     
     # Carrega e prepara os dados
-    x, y, edge_index, valid_nodes = load_and_preprocess_data("out/grapphh.gml")
+    x, y, edge_index, valid_nodes = load_and_preprocess_data("out/grafo_fraude_c.gml")
     
     # Cria o objeto Data do PyG
     data = Data(x=x, edge_index=edge_index, y=y)

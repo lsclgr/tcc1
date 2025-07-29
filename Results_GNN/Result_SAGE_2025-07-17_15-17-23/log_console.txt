@@ -1,0 +1,122 @@
+Execução iniciada em: 2025-07-17_15-17-23
+
+Configurações da Rodada:
+  - model: sage
+  - balancing: weights
+  - data_path: out/grafo_fraude_c.gml
+  - epochs: 500
+  - lr: 0.001
+  - hidden_channels: 128
+  - dropout: 0.5
+  - num_layers: 2
+  - weight_decay: 0.0005
+------------------------------
+Carregando o grafo do arquivo GML...
+Pré-processando os dados dos nós...
+Processando features...
+Features numéricas encontradas: ['num_transacoes_feitas', 'num_transacoes_recebidas', 'valor_medio_enviado', 'valor_medio_recebido', 'desvio_padrao_transacoes', 'num_contas_relacionadas', 'num_estornos', 'num_cancelamentos', 'num_pagamentos_contas', 'total_pagamentos_contas']
+Escalando features...
+
+--- Resumo do Pré-processamento ---
+Dados processados: Data(x=[2640, 21], edge_index=[2, 1991], y=[2640], num_nodes=2640)
+Número de features por nó: 21
+Distribuição das classes: tensor([2425,  215])
+------------------------------------
+
+Máscaras de dados criadas:
+  - Nós de Treino: 1848
+  - Nós de Validação: 396
+  - Nós de Teste: 396
+
+Usando dispositivo: cpu
+
+Arquitetura do Modelo:
+ GraphSAGE(
+  (convs): ModuleList(
+    (0): SAGEConv(21, 128, aggr=mean)
+    (1): SAGEConv(128, 2, aggr=mean)
+  )
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+Usando balanceamento por pesos de classe na função de perda.
+
+Iniciando o treinamento...
+🚀 Época: 010, Perda: 0.6207, Val F1: 0.2727 (Novo Melhor!)
+🚀 Época: 020, Perda: 0.5666, Val F1: 0.2781 (Novo Melhor!)
+   Época: 030, Perda: 0.5373, Val F1: 0.2685
+   Época: 040, Perda: 0.5087, Val F1: 0.2685
+   Época: 050, Perda: 0.4958, Val F1: 0.2515
+   Época: 060, Perda: 0.4777, Val F1: 0.2577
+   Época: 070, Perda: 0.4673, Val F1: 0.2733
+🚀 Época: 080, Perda: 0.4541, Val F1: 0.2821 (Novo Melhor!)
+🚀 Época: 090, Perda: 0.4547, Val F1: 0.2857 (Novo Melhor!)
+   Época: 100, Perda: 0.4447, Val F1: 0.2763
+   Época: 110, Perda: 0.4224, Val F1: 0.2763
+   Época: 120, Perda: 0.4272, Val F1: 0.2819
+🚀 Época: 130, Perda: 0.4223, Val F1: 0.3226 (Novo Melhor!)
+🚀 Época: 140, Perda: 0.4090, Val F1: 0.3311 (Novo Melhor!)
+🚀 Época: 150, Perda: 0.4127, Val F1: 0.3399 (Novo Melhor!)
+🚀 Época: 160, Perda: 0.4021, Val F1: 0.3421 (Novo Melhor!)
+   Época: 170, Perda: 0.3912, Val F1: 0.3399
+🚀 Época: 180, Perda: 0.3938, Val F1: 0.3636 (Novo Melhor!)
+🚀 Época: 190, Perda: 0.3859, Val F1: 0.3742 (Novo Melhor!)
+   Época: 200, Perda: 0.3910, Val F1: 0.3742
+   Época: 210, Perda: 0.3938, Val F1: 0.3742
+   Época: 220, Perda: 0.3842, Val F1: 0.3694
+   Época: 230, Perda: 0.3662, Val F1: 0.3718
+   Época: 240, Perda: 0.3838, Val F1: 0.3718
+   Época: 250, Perda: 0.3659, Val F1: 0.3718
+   Época: 260, Perda: 0.3688, Val F1: 0.3742
+🚀 Época: 270, Perda: 0.3541, Val F1: 0.3871 (Novo Melhor!)
+🚀 Época: 280, Perda: 0.3636, Val F1: 0.3922 (Novo Melhor!)
+   Época: 290, Perda: 0.3732, Val F1: 0.3846
+🚀 Época: 300, Perda: 0.3507, Val F1: 0.3947 (Novo Melhor!)
+   Época: 310, Perda: 0.3554, Val F1: 0.3947
+🚀 Época: 320, Perda: 0.3473, Val F1: 0.4027 (Novo Melhor!)
+   Época: 330, Perda: 0.3470, Val F1: 0.3871
+🚀 Época: 340, Perda: 0.3423, Val F1: 0.4054 (Novo Melhor!)
+   Época: 350, Perda: 0.3501, Val F1: 0.4000
+   Época: 360, Perda: 0.3413, Val F1: 0.4054
+🚀 Época: 370, Perda: 0.3496, Val F1: 0.4082 (Novo Melhor!)
+   Época: 380, Perda: 0.3462, Val F1: 0.4054
+   Época: 390, Perda: 0.3440, Val F1: 0.4082
+🚀 Época: 400, Perda: 0.3375, Val F1: 0.4110 (Novo Melhor!)
+🚀 Época: 410, Perda: 0.3413, Val F1: 0.4225 (Novo Melhor!)
+   Época: 420, Perda: 0.3371, Val F1: 0.4167
+   Época: 430, Perda: 0.3438, Val F1: 0.4082
+   Época: 440, Perda: 0.3313, Val F1: 0.4082
+🚀 Época: 450, Perda: 0.3298, Val F1: 0.4255 (Novo Melhor!)
+🚀 Época: 460, Perda: 0.3346, Val F1: 0.4317 (Novo Melhor!)
+   Época: 470, Perda: 0.3440, Val F1: 0.4167
+   Época: 480, Perda: 0.3212, Val F1: 0.4317
+   Época: 490, Perda: 0.3356, Val F1: 0.4286
+   Época: 500, Perda: 0.3233, Val F1: 0.4317
+
+✅ Treinamento finalizado!
+Melhor modelo salvo em 'Results_GNN\Result_SAGE_2025-07-17_15-17-23\best_model.pth'
+
+Melhor limiar encontrado no conjunto de validação: 0.77 (com F1-Score de 0.5570)
+
+--- Resultados Finais (Melhor Modelo com Limiar Otimizado) ---
+
+Métricas de Treino:
+  - Accuracy: 0.9188
+  - Precision: 0.5025
+  - Recall: 0.6623
+  - F1: 0.5714
+  - Roc_auc: 0.9369
+
+Métricas de Validação:
+  - Accuracy: 0.9116
+  - Precision: 0.4681
+  - Recall: 0.6875
+  - F1: 0.5570
+  - Roc_auc: 0.9255
+
+Métricas de Teste:
+  - Accuracy: 0.9394
+  - Precision: 0.6333
+  - Recall: 0.5938
+  - F1: 0.6129
+  - Roc_auc: 0.9250
+Matriz de confusão salva em: Results_GNN\Result_SAGE_2025-07-17_15-17-23\matriz_confusao_teste.png

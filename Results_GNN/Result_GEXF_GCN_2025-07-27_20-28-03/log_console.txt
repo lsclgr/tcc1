@@ -1,0 +1,107 @@
+Execução iniciada em: 2025-07-27_20-28-03
+
+Configurações da Rodada:
+  - model: gcn
+  - balancing: weights
+  - data_path: grafo_filtrado_transacoes_c_fraude.gexf
+  - epochs: 300
+  - lr: 0.005
+  - hidden_channels: 128
+  - dropout: 0.5
+  - num_layers: 2
+  - weight_decay: 0.0005
+------------------------------
+Carregando o grafo do arquivo GEXF...
+Pré-processando os dados dos nós...
+Processando features...
+Features numéricas encontradas: ['profile_created_at', 'profile_birth', 'profile_is_pep', 'profile_is_foreign', 'profile_length_email', 'profile_name_in_email', 'profile_number_initial_email', 'profile_number_final_email', 'profile_number_in_email', 'users', 'contact_by_phone', 'pct_00_05', 'pct_06_11', 'pct_12_17', 'pct_18_23', 'pct_dias_uteis', 'pct_fins_semana', 'pct_seg', 'pct_ter', 'pct_qua', 'pct_qui', 'pct_sex', 'pct_sab', 'pct_dom', 'pct_1_10', 'pct_11_20', 'pct_21_31', 'pct_estornos', 'pct_cancelamentos', 'valor_total_pago', 'valor_medio_pago', 'valor_total_sem_estorno_cancelamento', 'valor_medio_sem_estorno_cancelamento', 'qtd_total', 'qtd_total_sem_estorno_cancelamento']
+Features categóricas encontradas: ['documento_tipo', 'profile_career', 'profile_dominio_email']
+Escalando features...
+
+--- Resumo do Pré-processamento ---
+Dados processados: Data(x=[3234, 308], edge_index=[2, 3230], y=[3234], num_nodes=3234)
+Número de features por nó: 308
+Distribuição das classes: tensor([2720,  514])
+------------------------------------
+
+Máscaras de dados criadas:
+  - Nós de Treino: 2263
+  - Nós de Validação: 485
+  - Nós de Teste: 486
+
+Usando dispositivo: cpu
+
+Arquitetura do Modelo:
+ GCN(
+  (convs): ModuleList(
+    (0): GCNConv(308, 128)
+    (1): GCNConv(128, 2)
+  )
+  (bns): ModuleList(
+    (0): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+
+Usando balanceamento por pesos de classe na função de perda.
+
+Iniciando o treinamento...
+🚀 Época: 010, Perda: 0.3218, Val F1: 0.6637 (Novo Melhor!)
+🚀 Época: 020, Perda: 0.2459, Val F1: 0.6981 (Novo Melhor!)
+   Época: 030, Perda: 0.2125, Val F1: 0.6854
+   Época: 040, Perda: 0.1983, Val F1: 0.6919
+🚀 Época: 050, Perda: 0.1802, Val F1: 0.7157 (Novo Melhor!)
+🚀 Época: 060, Perda: 0.1511, Val F1: 0.7255 (Novo Melhor!)
+   Época: 070, Perda: 0.1397, Val F1: 0.7094
+   Época: 080, Perda: 0.1302, Val F1: 0.7010
+   Época: 090, Perda: 0.1278, Val F1: 0.7107
+🚀 Época: 100, Perda: 0.1291, Val F1: 0.7358 (Novo Melhor!)
+🚀 Época: 110, Perda: 0.1145, Val F1: 0.7435 (Novo Melhor!)
+   Época: 120, Perda: 0.1107, Val F1: 0.7243
+🚀 Época: 130, Perda: 0.1117, Val F1: 0.7444 (Novo Melhor!)
+🚀 Época: 140, Perda: 0.1070, Val F1: 0.7586 (Novo Melhor!)
+🚀 Época: 150, Perda: 0.1100, Val F1: 0.7657 (Novo Melhor!)
+   Época: 160, Perda: 0.1010, Val F1: 0.7485
+   Época: 170, Perda: 0.1025, Val F1: 0.7586
+   Época: 180, Perda: 0.0957, Val F1: 0.7586
+   Época: 190, Perda: 0.0976, Val F1: 0.7456
+   Época: 200, Perda: 0.0928, Val F1: 0.7529
+   Época: 210, Perda: 0.0924, Val F1: 0.7412
+   Época: 220, Perda: 0.0836, Val F1: 0.7574
+   Época: 230, Perda: 0.0947, Val F1: 0.7412
+   Época: 240, Perda: 0.0917, Val F1: 0.7456
+   Época: 250, Perda: 0.0867, Val F1: 0.7558
+   Época: 260, Perda: 0.0869, Val F1: 0.7337
+   Época: 270, Perda: 0.0845, Val F1: 0.7456
+   Época: 280, Perda: 0.0843, Val F1: 0.7485
+   Época: 290, Perda: 0.0833, Val F1: 0.7456
+   Época: 300, Perda: 0.0802, Val F1: 0.7529
+
+✅ Treinamento finalizado!
+Melhor modelo salvo em 'Results_GNN\Result_GEXF_GCN_2025-07-27_20-28-03\best_model.pth'
+
+Melhor limiar encontrado no conjunto de validação: 0.61 (com F1-Score de 0.7654)
+
+--- Resultados Finais (Melhor Modelo com Limiar Otimizado) ---
+
+Métricas de Treino:
+  - Accuracy: 0.9717
+  - Precision: 0.8575
+  - Recall: 0.9861
+  - F1: 0.9173
+  - Roc_auc: 0.9970
+
+Métricas de Validação:
+  - Accuracy: 0.9216
+  - Precision: 0.7294
+  - Recall: 0.8052
+  - F1: 0.7654
+  - Roc_auc: 0.9551
+
+Métricas de Teste:
+  - Accuracy: 0.9177
+  - Precision: 0.7126
+  - Recall: 0.8052
+  - F1: 0.7561
+  - Roc_auc: 0.9481
+Matriz de confusão salva em: Results_GNN\Result_GEXF_GCN_2025-07-27_20-28-03\matriz_confusao_teste.png

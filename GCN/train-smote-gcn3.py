@@ -10,7 +10,7 @@ import networkx as nx
 import numpy as np
 
 # Carregamento do grafo
-G_nx = nx.read_gml("out/grapphh.gml")
+G_nx = nx.read_gml("out/grafo_fraude_c.gml")
 node_mapping = {node: idx for idx, node in enumerate(G_nx.nodes)}
 edges = [[node_mapping[u], node_mapping[v]] for u, v in G_nx.edges]
 edge_index = torch.tensor(edges, dtype=torch.long).t().contiguous()

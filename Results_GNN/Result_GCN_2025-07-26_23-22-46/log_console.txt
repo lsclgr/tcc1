@@ -1,0 +1,176 @@
+Execução iniciada em: 2025-07-26_23-22-46
+
+Configurações da Rodada:
+  - model: gcn
+  - balancing: weights
+  - data_path: out/grafo_fraude_c.gml
+  - epochs: 1000
+  - lr: 0.001
+  - hidden_channels: 128
+  - dropout: 0.5
+  - num_layers: 2
+  - weight_decay: 0.0005
+------------------------------
+Carregando o grafo do arquivo GML...
+Pré-processando os dados dos nós...
+Processando features...
+Features numéricas encontradas: ['num_transacoes_feitas', 'num_transacoes_recebidas', 'valor_medio_enviado', 'valor_medio_recebido', 'desvio_padrao_transacoes', 'num_contas_relacionadas', 'num_estornos', 'num_cancelamentos', 'num_pagamentos_contas', 'total_pagamentos_contas']
+Escalando features...
+
+--- Resumo do Pré-processamento ---
+Dados processados: Data(x=[2640, 21], edge_index=[2, 1991], y=[2640], num_nodes=2640)
+Número de features por nó: 21
+Distribuição das classes: tensor([2425,  215])
+------------------------------------
+
+Máscaras de dados criadas:
+  - Nós de Treino: 1848
+  - Nós de Validação: 396
+  - Nós de Teste: 396
+
+Usando dispositivo: cpu
+
+Arquitetura do Modelo:
+ GCN(
+  (convs): ModuleList(
+    (0): GCNConv(21, 128)
+    (1): GCNConv(128, 2)
+  )
+  (bns): ModuleList(
+    (0): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+
+Usando balanceamento por pesos de classe na função de perda.
+
+Iniciando o treinamento...
+🚀 Época: 010, Perda: 0.6242, Val F1: 0.2488 (Novo Melhor!)
+🚀 Época: 020, Perda: 0.5642, Val F1: 0.2613 (Novo Melhor!)
+🚀 Época: 030, Perda: 0.5473, Val F1: 0.2784 (Novo Melhor!)
+   Época: 040, Perda: 0.5319, Val F1: 0.2762
+🚀 Época: 050, Perda: 0.5023, Val F1: 0.2886 (Novo Melhor!)
+🚀 Época: 060, Perda: 0.4999, Val F1: 0.2959 (Novo Melhor!)
+   Época: 070, Perda: 0.4833, Val F1: 0.2871
+🚀 Época: 080, Perda: 0.4668, Val F1: 0.3021 (Novo Melhor!)
+🚀 Época: 090, Perda: 0.4720, Val F1: 0.3069 (Novo Melhor!)
+🚀 Época: 100, Perda: 0.4560, Val F1: 0.3200 (Novo Melhor!)
+   Época: 110, Perda: 0.4636, Val F1: 0.3111
+🚀 Época: 120, Perda: 0.4504, Val F1: 0.3314 (Novo Melhor!)
+🚀 Época: 130, Perda: 0.4342, Val F1: 0.3522 (Novo Melhor!)
+   Época: 140, Perda: 0.4252, Val F1: 0.3484
+🚀 Época: 150, Perda: 0.4236, Val F1: 0.3567 (Novo Melhor!)
+   Época: 160, Perda: 0.4070, Val F1: 0.3396
+🚀 Época: 170, Perda: 0.4147, Val F1: 0.3709 (Novo Melhor!)
+   Época: 180, Perda: 0.4009, Val F1: 0.3649
+   Época: 190, Perda: 0.4136, Val F1: 0.3600
+   Época: 200, Perda: 0.4137, Val F1: 0.3649
+   Época: 210, Perda: 0.4007, Val F1: 0.3699
+   Época: 220, Perda: 0.4089, Val F1: 0.3649
+   Época: 230, Perda: 0.3927, Val F1: 0.3673
+🚀 Época: 240, Perda: 0.3898, Val F1: 0.3972 (Novo Melhor!)
+   Época: 250, Perda: 0.4042, Val F1: 0.3885
+   Época: 260, Perda: 0.3886, Val F1: 0.3776
+   Época: 270, Perda: 0.3938, Val F1: 0.3803
+   Época: 280, Perda: 0.3902, Val F1: 0.3803
+   Época: 290, Perda: 0.3867, Val F1: 0.3830
+   Época: 300, Perda: 0.3838, Val F1: 0.3857
+   Época: 310, Perda: 0.3724, Val F1: 0.3916
+🚀 Época: 320, Perda: 0.3682, Val F1: 0.4000 (Novo Melhor!)
+   Época: 330, Perda: 0.3747, Val F1: 0.3944
+   Época: 340, Perda: 0.3759, Val F1: 0.3885
+   Época: 350, Perda: 0.3714, Val F1: 0.3803
+   Época: 360, Perda: 0.3729, Val F1: 0.3972
+   Época: 370, Perda: 0.3743, Val F1: 0.3916
+   Época: 380, Perda: 0.3613, Val F1: 0.3972
+🚀 Época: 390, Perda: 0.3655, Val F1: 0.4088 (Novo Melhor!)
+   Época: 400, Perda: 0.3661, Val F1: 0.4000
+   Época: 410, Perda: 0.3567, Val F1: 0.3972
+   Época: 420, Perda: 0.3593, Val F1: 0.3889
+   Época: 430, Perda: 0.3593, Val F1: 0.4000
+   Época: 440, Perda: 0.3589, Val F1: 0.3916
+   Época: 450, Perda: 0.3607, Val F1: 0.4085
+   Época: 460, Perda: 0.3634, Val F1: 0.4029
+🚀 Época: 470, Perda: 0.3604, Val F1: 0.4113 (Novo Melhor!)
+   Época: 480, Perda: 0.3658, Val F1: 0.4085
+🚀 Época: 490, Perda: 0.3685, Val F1: 0.4255 (Novo Melhor!)
+   Época: 500, Perda: 0.3559, Val F1: 0.4029
+   Época: 510, Perda: 0.3552, Val F1: 0.4143
+   Época: 520, Perda: 0.3541, Val F1: 0.3942
+   Época: 530, Perda: 0.3662, Val F1: 0.4085
+   Época: 540, Perda: 0.3563, Val F1: 0.4085
+   Época: 550, Perda: 0.3697, Val F1: 0.4113
+   Época: 560, Perda: 0.3450, Val F1: 0.4234
+   Época: 570, Perda: 0.3361, Val F1: 0.4173
+   Época: 580, Perda: 0.3460, Val F1: 0.4000
+   Época: 590, Perda: 0.3370, Val F1: 0.3944
+   Época: 600, Perda: 0.3496, Val F1: 0.4143
+   Época: 610, Perda: 0.3523, Val F1: 0.4179
+🚀 Época: 620, Perda: 0.3572, Val F1: 0.4265 (Novo Melhor!)
+   Época: 630, Perda: 0.3504, Val F1: 0.4265
+   Época: 640, Perda: 0.3501, Val F1: 0.4234
+   Época: 650, Perda: 0.3389, Val F1: 0.4203
+   Época: 660, Perda: 0.3485, Val F1: 0.4143
+   Época: 670, Perda: 0.3380, Val F1: 0.4203
+🚀 Época: 680, Perda: 0.3418, Val F1: 0.4444 (Novo Melhor!)
+   Época: 690, Perda: 0.3392, Val F1: 0.4265
+   Época: 700, Perda: 0.3414, Val F1: 0.4380
+   Época: 710, Perda: 0.3442, Val F1: 0.4242
+   Época: 720, Perda: 0.3414, Val F1: 0.4265
+   Época: 730, Perda: 0.3452, Val F1: 0.4265
+   Época: 740, Perda: 0.3388, Val F1: 0.4317
+   Época: 750, Perda: 0.3299, Val F1: 0.4088
+   Época: 760, Perda: 0.3403, Val F1: 0.4118
+   Época: 770, Perda: 0.3284, Val F1: 0.4275
+   Época: 780, Perda: 0.3382, Val F1: 0.4211
+   Época: 790, Perda: 0.3369, Val F1: 0.4091
+   Época: 800, Perda: 0.3273, Val F1: 0.4179
+   Época: 810, Perda: 0.3373, Val F1: 0.4148
+   Época: 820, Perda: 0.3373, Val F1: 0.4275
+   Época: 830, Perda: 0.3391, Val F1: 0.4242
+   Época: 840, Perda: 0.3356, Val F1: 0.4380
+   Época: 850, Perda: 0.3369, Val F1: 0.4211
+   Época: 860, Perda: 0.3304, Val F1: 0.4148
+   Época: 870, Perda: 0.3323, Val F1: 0.4118
+   Época: 880, Perda: 0.3391, Val F1: 0.4242
+   Época: 890, Perda: 0.3344, Val F1: 0.4234
+   Época: 900, Perda: 0.3352, Val F1: 0.4211
+   Época: 910, Perda: 0.3306, Val F1: 0.4148
+   Época: 920, Perda: 0.3279, Val F1: 0.4118
+   Época: 930, Perda: 0.3309, Val F1: 0.4328
+   Época: 940, Perda: 0.3333, Val F1: 0.4211
+   Época: 950, Perda: 0.3220, Val F1: 0.4211
+   Época: 960, Perda: 0.3294, Val F1: 0.4296
+   Época: 970, Perda: 0.3211, Val F1: 0.4179
+   Época: 980, Perda: 0.3317, Val F1: 0.4211
+   Época: 990, Perda: 0.3323, Val F1: 0.4211
+   Época: 1000, Perda: 0.3252, Val F1: 0.4211
+
+✅ Treinamento finalizado!
+Melhor modelo salvo em 'Results_GNN\Result_GCN_2025-07-26_23-22-46\best_model.pth'
+
+Melhor limiar encontrado no conjunto de validação: 0.78 (com F1-Score de 0.6377)
+
+--- Resultados Finais (Melhor Modelo com Limiar Otimizado) ---
+
+Métricas de Treino:
+  - Accuracy: 0.9351
+  - Precision: 0.6000
+  - Recall: 0.6159
+  - F1: 0.6078
+  - Roc_auc: 0.9413
+
+Métricas de Validação:
+  - Accuracy: 0.9369
+  - Precision: 0.5946
+  - Recall: 0.6875
+  - F1: 0.6377
+  - Roc_auc: 0.9333
+
+Métricas de Teste:
+  - Accuracy: 0.9470
+  - Precision: 0.7391
+  - Recall: 0.5312
+  - F1: 0.6182
+  - Roc_auc: 0.9246
+Matriz de confusão salva em: Results_GNN\Result_GCN_2025-07-26_23-22-46\matriz_confusao_teste.png

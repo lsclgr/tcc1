@@ -1,0 +1,17 @@
+Execução iniciada em: 2025-07-17_15-25-53
+
+Configurações da Rodada:
+  - model: gcn
+  - balancing: oversample
+  - data_path: out/grafo_fraude_c.gml
+  - epochs: 300
+  - lr: 0.005
+  - hidden_channels: 128
+  - dropout: 0.5
+  - num_layers: 2
+  - weight_decay: 0.0005
+------------------------------
+Carregando o grafo do arquivo GML...
+Pré-processando os dados dos nós...
+Processando features...
+Features numéricas encontradas: ['num_transacoes_feitas', 'num_transacoes_recebidas', 'valor_medio_enviado', 'valor_medio_recebido', 'desvio_padrao_transacoes', 'num_contas_relacionadas', 'num_estornos', 'num_cancelamentos', 'num_pagamentos_contas', 'total_pagamentos_contas']

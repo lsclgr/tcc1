@@ -1,0 +1,91 @@
+Execução iniciada em: 2025-07-16_23-18-04
+
+Configurações da Rodada:
+  - model: gcn
+  - data_path: out/grafo_fraude_c.gml
+  - epochs: 200
+  - lr: 0.01
+  - hidden_channels: 128
+  - dropout: 0.5
+  - num_layers: 3
+  - weight_decay: 0.0005
+------------------------------
+Carregando o grafo do arquivo GML...
+Pré-processando os dados dos nós...
+Processando features...
+Features numéricas encontradas: ['num_transacoes_feitas', 'num_transacoes_recebidas', 'valor_medio_enviado', 'valor_medio_recebido', 'desvio_padrao_transacoes', 'num_contas_relacionadas', 'num_estornos', 'num_cancelamentos', 'num_pagamentos_contas', 'total_pagamentos_contas']
+Escalando features...
+
+--- Resumo do Pré-processamento ---
+Dados processados: Data(x=[972, 21], edge_index=[2, 730], y=[972], num_nodes=972)
+Número de features por nó: 21
+Distribuição das classes: tensor([895,  77])
+------------------------------------
+
+Máscaras de dados criadas:
+  - Nós de Treino: 680
+  - Nós de Validação: 146
+  - Nós de Teste: 146
+
+Usando dispositivo: cpu
+
+Arquitetura do Modelo:
+GCN(
+  (convs): ModuleList(
+    (0): GCNConv(21, 128)
+    (1): GCNConv(128, 128)
+    (2): GCNConv(128, 2)
+  )
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+
+Iniciando o treinamento...
+🚀 Época: 010, Perda: 0.4793, Val F1: 0.2857 (Novo Melhor!)
+🚀 Época: 020, Perda: 0.3703, Val F1: 0.3273 (Novo Melhor!)
+   Época: 030, Perda: 0.3520, Val F1: 0.2909
+   Época: 040, Perda: 0.2852, Val F1: 0.3137
+🚀 Época: 050, Perda: 0.2859, Val F1: 0.3333 (Novo Melhor!)
+   Época: 060, Perda: 0.2666, Val F1: 0.3265
+   Época: 070, Perda: 0.2599, Val F1: 0.3137
+   Época: 080, Perda: 0.2522, Val F1: 0.2917
+   Época: 090, Perda: 0.2668, Val F1: 0.3111
+   Época: 100, Perda: 0.2468, Val F1: 0.2917
+   Época: 110, Perda: 0.2333, Val F1: 0.2979
+   Época: 120, Perda: 0.2378, Val F1: 0.3111
+🚀 Época: 130, Perda: 0.2489, Val F1: 0.3404 (Novo Melhor!)
+   Época: 140, Perda: 0.2486, Val F1: 0.3111
+   Época: 150, Perda: 0.2278, Val F1: 0.3043
+   Época: 160, Perda: 0.2295, Val F1: 0.3043
+   Época: 170, Perda: 0.2651, Val F1: 0.3182
+   Época: 180, Perda: 0.2438, Val F1: 0.3111
+   Época: 190, Perda: 0.2253, Val F1: 0.3256
+   Época: 200, Perda: 0.2330, Val F1: 0.3111
+
+✅ Treinamento finalizado!
+Melhor modelo salvo em 'Results_GNN\Result_GCN_2025-07-16_23-18-04\best_model.pth'
+
+Melhor limiar encontrado no conjunto de validação: 0.89 (com F1-Score de 0.5556)
+
+--- Resultados Finais (Melhor Modelo com Limiar Otimizado) ---
+
+Métricas de Treino:
+  - Accuracy: 0.9574
+  - Precision: 0.7660
+  - Recall: 0.6667
+  - F1: 0.7129
+  - Roc_auc: 0.9743
+
+Métricas de Validação:
+  - Accuracy: 0.9452
+  - Precision: 0.8333
+  - Recall: 0.4167
+  - F1: 0.5556
+  - Roc_auc: 0.8396
+
+Métricas de Teste:
+  - Accuracy: 0.9110
+  - Precision: 0.4000
+  - Recall: 0.3636
+  - F1: 0.3810
+  - Roc_auc: 0.8815
+Matriz de confusão salva em: Results_GNN\Result_GCN_2025-07-16_23-18-04\matriz_confusao_teste.png
